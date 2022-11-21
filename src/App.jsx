@@ -3,7 +3,14 @@ import "./normalize.css";
 import "./App.css";
 
 // Component imports
-import { Navbar, Hero, AudioPlayer, Services, Contact } from "./components";
+import {
+  Navbar,
+  Hero,
+  AudioPlayer,
+  Services,
+  Contact,
+  Footer,
+} from "./components";
 
 function App() {
   return (
@@ -13,6 +20,7 @@ function App() {
       <AudioPlayer />
       <Services />
       <Contact />
+      <Footer />
     </>
   );
 }

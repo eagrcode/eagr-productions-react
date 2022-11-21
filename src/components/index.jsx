@@ -7,3 +7,4 @@ export { default as AudioControls } from "./AudioControls";
 export { default as Services } from "./Services";
 export { default as ServiceCard } from "./ServiceCard";
 export { default as Contact } from "./Contact";
+export { default as Footer } from "./Footer";
