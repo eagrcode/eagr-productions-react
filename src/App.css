@@ -25,11 +25,12 @@ html {
 
 h1 {
   font-size: 4rem;
+  font-weight: 400;
 }
 
 h2 {
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h3 {
@@ -38,6 +39,10 @@ h3 {
 
 p {
   font-size: 1rem;
+}
+
+em {
+  font-weight: 200;
 }
 
 img {
@@ -236,6 +241,7 @@ header {
   border-radius: 5px;
   text-align: center;
   padding: 1rem;
+  margin-top: 2rem;
 
   gap: 1rem;
 }
@@ -265,4 +271,61 @@ header {
   cursor: pointer;
   background-color: transparent;
   color: rgb(230, 230, 230);
+}
+
+/* SERVICES STYLES */
+
+#services {
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-bg-color-light);
+}
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50rem;
+  text-align: center;
+
+  background-color: var(--main-bg-color-light);
+  padding: 3rem 1rem;
+  gap: 1rem;
+}
+
+.services-text {
+  color: var(--main-bg-color-dark);
+}
+
+.card-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 300px;
+
+  gap: 1rem;
+  margin-top: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+
+  height: 100%;
+
+  gap: 1rem;
+  padding: 5rem;
+
+  background-color: var(--main-bg-color-light);
+  color: hsl(327, 100%, 25%);
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 8px;
 }
