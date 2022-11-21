@@ -6,3 +6,4 @@ export { default as AudioPlayer } from "./AudioPlayer";
 export { default as AudioControls } from "./AudioControls";
 export { default as Services } from "./Services";
 export { default as ServiceCard } from "./ServiceCard";
+export { default as Contact } from "./Contact";
