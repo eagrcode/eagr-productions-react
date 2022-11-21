@@ -203,3 +203,66 @@ header {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9138b0",endColorstr="#3a61d4",GradientType=1);
 }
+
+/* PORTFOLIO STYLES */
+
+.portfolio-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--main-bg-color-dark);
+  width: 100%;
+  padding: 3rem 1rem;
+  gap: 1rem;
+}
+
+#portfolio-header {
+  color: var(--main-bg-color-light);
+}
+
+.portfolio-wrapper em {
+  color: var(--main-bg-color-light);
+}
+
+.audio-player {
+  width: 100%;
+  background-color: gray;
+  color: var(--main-bg-color-light);
+  background-color: hsl(0, 0%, 15%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-align: center;
+  padding: 1rem;
+
+  gap: 1rem;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.artwork {
+  border-radius: 5px;
+}
+
+.audio-controls {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.prev,
+.play,
+.pause,
+.next {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: rgb(230, 230, 230);
+}
