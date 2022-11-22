@@ -1,5 +1,5 @@
 // hooks
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 // data
 import tracks from "../../tracksData";
 // components
@@ -9,29 +9,48 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function AudioPlayer() {
   // state
-  const [trackIndex, setTrackIndex] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [trackProgress, setTrackProgress] = useState(0);
+  const [tracksData, setTracksData] = useState(tracks);
 
   // data destructure
-  const { title, artist, audioSrc, image, service } = tracks[trackIndex];
+  const { title, artist, audioSrc, image, service } = tracksData[currentTrack];
+
+  // refs
+
+  const audioRef = useRef(new Audio(audioSrc));
+
+  console.log(tracks[currentTrack]);
+  console.log(audioRef.current);
+  console.log(isPlaying);
 
   // to previous track
   const toPrevTrack = () => {
-    if (trackIndex - 1 < 0) {
-      setTrackIndex(tracks.length - 1);
+    if (currentTrack - 1 < 0) {
+      setCurrentTrack(trackslength - 1);
     } else {
-      setTrackIndex(trackIndex - 1);
+      setCurrentTrack(currentTrack - 1);
     }
   };
 
   // to next track
   const toNextTrack = () => {
-    if (trackIndex < tracks.length - 1) {
-      setTrackIndex(trackIndex + 1);
+    if (currentTrack < tracks.length - 1) {
+      setCurrentTrack(currentTrack + 1);
     } else {
-      setTrackIndex(0);
+      setCurrentTrack(0);
     }
   };
+
+  // toggle play/pause audio
+  // useEffect(() => {
+  //   if (isPlaying) {
+  //     audioRef.current.play();
+  //   } else {
+  //     audioRef.current.pause();
+  //   }
+  // }, [isPlaying]);
 
   return (
     <div className="audio-player">
@@ -79,6 +98,7 @@ function AudioPlayer() {
         setIsPlaying={setIsPlaying}
         onPrevClick={toPrevTrack}
         onNextClick={toNextTrack}
+        onPlayPauseClick={setIsPlaying}
       />
     </div>
   );
