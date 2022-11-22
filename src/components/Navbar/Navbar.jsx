@@ -21,25 +21,25 @@ function Navbar({ title }) {
         </a>
 
         <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
-          <li className="nav-item">
-            <a href="" className="nav-link" id="nav-link">
+          <li className="nav-item" onClick={handleClick}>
+            <a href="#" className="nav-link" id="nav-link">
               Home
             </a>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item" onClick={handleClick}>
             <a href="#portfolio" className="nav-link" id="nav-link">
               Portfolio
             </a>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item" onClick={handleClick}>
             <a href="#services" className="nav-link" id="nav-link">
               Services
             </a>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item" onClick={handleClick}>
             <a href="#contact" className="nav-link">
               <HiMail size={50} />
             </a>

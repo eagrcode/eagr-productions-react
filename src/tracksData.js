@@ -25,7 +25,7 @@ const tracks = [
     audioSrc:
       "https://eagrcode-website-images.s3.eu-west-2.amazonaws.com/02+Hollow+(Final).mp3",
     image:
-      "https://eagrcode-website-images.s3.eu-west-2.amazonaws.com/Ankida+cover+art.jfif",
+      "https://eagrcode-website-images.s3.eu-west-2.amazonaws.com/ankida-hollow-cover-art.jpg",
     service: "Full Production",
   },
   {

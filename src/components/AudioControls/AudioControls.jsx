@@ -1,9 +1,14 @@
 import { FaPlay, FaPause, FaBackward, FaForward } from "react-icons/fa";
 
-function AudioControls({ isPlaying, setIsplaying }) {
+function AudioControls({ isPlaying, setIsplaying, onPrevClick, onNextClick }) {
   return (
     <div className="audio-controls">
-      <button type="button" className="prev" aria-label="Previous">
+      <button
+        type="button"
+        className="prev"
+        aria-label="Previous"
+        onClick={onPrevClick}
+      >
         <FaBackward size={30} />
       </button>
       {isPlaying ? (
@@ -15,7 +20,12 @@ function AudioControls({ isPlaying, setIsplaying }) {
           <FaPlay size={30} />
         </button>
       )}
-      <button type="button" className="next" aria-label="Next">
+      <button
+        type="button"
+        className="next"
+        aria-label="Next"
+        onClick={onNextClick}
+      >
         <FaForward size={30} />
       </button>
     </div>

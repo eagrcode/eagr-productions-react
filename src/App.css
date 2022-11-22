@@ -4,7 +4,7 @@
 
 :root {
   --main-bg-color-dark: hsl(280, 100%, 2%);
-  --main-bg-color-light: hsl(240, 29%, 90%);
+  --main-bg-color-light: hsl(240, 29%, 85%);
   --nav-link-color-light: hsl(240, 29%, 90%);
 }
 
@@ -18,8 +18,9 @@
 
 html {
   font-size: 100%;
-  scroll-padding-top: 8vh;
-  letter-spacing: 1.8px;
+  /* scroll-behavior: smooth; */
+  scroll-padding-top: 4rem;
+  letter-spacing: 1.6px;
   font-family: "Poppins", sans-serif, serif;
 }
 
