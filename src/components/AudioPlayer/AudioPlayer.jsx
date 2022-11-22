@@ -19,7 +19,7 @@ function AudioPlayer() {
 
   // refs
 
-  const audioRef = useRef(new Audio(audioSrc));
+  const audioRef = useRef();
 
   console.log(tracks[currentTrack]);
   console.log(audioRef.current);
@@ -44,13 +44,13 @@ function AudioPlayer() {
   };
 
   // toggle play/pause audio
-  // useEffect(() => {
-  //   if (isPlaying) {
-  //     audioRef.current.play();
-  //   } else {
-  //     audioRef.current.pause();
-  //   }
-  // }, [isPlaying]);
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+  }, [isPlaying]);
 
   return (
     <div className="audio-player">
@@ -100,6 +100,7 @@ function AudioPlayer() {
         onNextClick={toNextTrack}
         onPlayPauseClick={setIsPlaying}
       />
+      <audio src={audioSrc} ref={audioRef}></audio>
     </div>
   );
 }
