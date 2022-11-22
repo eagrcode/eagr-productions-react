@@ -29,7 +29,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 400;
 }
 
@@ -47,6 +47,11 @@ em {
 
 img {
   width: 100%;
+}
+
+button {
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 ul {
@@ -147,8 +152,8 @@ header {
   flex-direction: column;
   align-items: center;
   background-color: var(--main-bg-color-dark);
-  padding: 1rem 1rem;
-  gap: 1rem;
+  padding: 3rem 1rem;
+  gap: 3rem;
 }
 
 .hero-text-container {
@@ -164,20 +169,21 @@ header {
 
 .hero-text-container p {
   color: var(--nav-link-color-light);
+  opacity: 0.5;
 }
 
 .hero-image-container {
-  width: 90%;
+  width: 80%;
   max-width: 500px;
 }
 
 #cta {
-  padding: 1rem 3.5rem 1rem 3.5rem;
-  font-size: 2rem;
+  padding: 1rem 3rem 1rem 3rem;
+
   cursor: pointer;
 
   border: none;
-  border-radius: 8px;
+  border-radius: 3px;
   box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 30px 1px,
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   color: var(--main-bg-color-light);
@@ -283,6 +289,7 @@ header {
 .services-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 50rem;
   text-align: center;
@@ -341,23 +348,28 @@ header {
 .contact-container {
   width: 100%;
   max-width: 50rem;
-  min-height: 90vh;
+
   display: flex;
   flex-direction: column;
-  padding: 5rem 1rem;
+  align-items: center;
+  text-align: center;
+
+  padding: 3rem 1rem;
 }
 
 .form-container {
   display: flex;
   width: 100%;
+  margin-top: 2rem;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.8rem;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 3px;
 
   background-color: hsl(0, 0%, 15%);
 }
@@ -380,6 +392,7 @@ textarea {
   background-color: hsl(0, 0%, 20%);
   border: none;
   outline: none;
+  border-radius: 3px;
   padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   color: var(--main-bg-color-light);
   font-size: 1rem;
@@ -397,13 +410,13 @@ textarea {
   background-color: var(--main-bg-color-dark);
   border: none;
   cursor: pointer;
-  padding: 1rem 1rem 1rem 1rem;
-  font-size: 1.2rem;
+  padding: 1rem 3rem 1rem 3rem;
+  font-size: 1.6rem;
+
   outline: none;
   color: var(--main-bg-color-light);
   background-color: hsl(327, 100%, 15%);
-  border-radius: 8px;
-  width: 100%;
+  border-radius: 3px;
 }
 
 /* FOOTER STYLES */

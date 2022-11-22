@@ -6,10 +6,7 @@ function Contact() {
       <div className="contact-container">
         <div className="form-header">
           <h2>Contact</h2>
-          <p>
-            If you would like a personalised quote, please get in touch through
-            the form below.
-          </p>
+          <em>get in touch for a personalised quote</em>
         </div>
         <ContactForm />
       </div>

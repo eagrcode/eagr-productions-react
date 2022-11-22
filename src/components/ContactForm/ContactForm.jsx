@@ -34,7 +34,9 @@ function ContactForm() {
           maxLength="250"
           required
         ></textarea>
-        <input id="submit-btn" type="submit" value="Submit" />
+        <button id="submit-btn" type="submit" value="Submit">
+          Submit
+        </button>
       </form>
     </div>
   );
