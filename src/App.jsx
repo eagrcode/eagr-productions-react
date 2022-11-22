@@ -3,21 +3,16 @@ import "./normalize.css";
 import "./App.css";
 
 // Component imports
-import {
-  Navbar,
-  Hero,
-  AudioPlayer,
-  Services,
-  Contact,
-  Footer,
-} from "./components";
+import { Navbar, Footer } from "./components";
+// Page section imports
+import { Hero, Portfolio, Services, Contact } from "./sections";
 
 function App() {
   return (
     <>
       <Navbar title={"EAGR Productions"} />
       <Hero />
-      <AudioPlayer />
+      <Portfolio />
       <Services />
       <Contact />
       <Footer />

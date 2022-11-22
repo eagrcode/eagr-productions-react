@@ -3,7 +3,7 @@ import { BsFileEarmarkMusicFill } from "react-icons/bs";
 import { FaDrum } from "react-icons/fa";
 import { RiScissorsFill } from "react-icons/ri";
 
-import ServiceCard from "../ServiceCard";
+import ServiceCard from "../../components/ServiceCard";
 
 function Services() {
   return (

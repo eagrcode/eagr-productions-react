@@ -1,4 +1,4 @@
-import { HeroImage, Cta } from "../index";
+import { HeroImage, Cta } from "../../components";
 
 function Hero() {
   return (
