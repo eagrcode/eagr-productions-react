@@ -18,12 +18,16 @@ function AudioPlayer() {
   const { title, artist, audioSrc, image, service } = tracksData[currentTrack];
 
   // refs
-
-  const audioRef = useRef();
+  const audioRef = useRef(new Audio(audioSrc));
+  const intervalRef = useRef();
+  const isReady = useRef(false);
 
   console.log(tracks[currentTrack]);
   console.log(audioRef.current);
+  console.log(audioSrc);
   console.log(isPlaying);
+  console.log(intervalRef);
+  console.log(isReady.current);
 
   // to previous track
   const toPrevTrack = () => {
@@ -47,10 +51,49 @@ function AudioPlayer() {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
+      // startTimer();
     } else {
+      clearInterval(intervalRef.current);
       audioRef.current.pause();
     }
   }, [isPlaying]);
+
+  // Pause and clean up on unmount
+  useEffect(() => {
+    return () => {
+      audioRef.current.pause();
+      clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  // Handle setup when changing tracks
+  useEffect(() => {
+    audioRef.current.pause();
+    audioRef.current = new Audio(audioSrc);
+    setTrackProgress(audioRef.current.currentTime);
+
+    if (isReady.current && isPlaying === true) {
+      audioRef.current.play();
+      setIsPlaying(true);
+      // startTimer();
+    } else {
+      // Set the isReady ref as true for the next pass
+      isReady.current = true;
+    }
+  }, [currentTrack]);
+
+  // const startTimer = () => {
+  //   // Clear any timers already running
+  //   clearInterval(intervalRef.current);
+
+  //   intervalRef.current = setInterval(() => {
+  //     if (audioRef.current.ended) {
+  //       toNextTrack();
+  //     } else {
+  //       setTrackProgress(audioRef.current.currentTime);
+  //     }
+  //   }, [1000]);
+  // };
 
   return (
     <div className="audio-player">
@@ -100,7 +143,7 @@ function AudioPlayer() {
         onNextClick={toNextTrack}
         onPlayPauseClick={setIsPlaying}
       />
-      <audio src={audioSrc} ref={audioRef}></audio>
+      <audio src={audioSrc} preload="auto"></audio>
     </div>
   );
 }

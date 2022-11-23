@@ -1,17 +1,17 @@
 function Footer() {
   return (
     <footer id="footer">
-      <div class="footer-container">
-        <div class="row">
+      <div className="footer-container">
+        <div className="row">
           <h2>EAGR Productions</h2>
         </div>
 
-        <div class="row">
-          <i class="fa-solid fa-envelope"></i>
+        <div className="row">
+          <i className="fa-solid fa-envelope"></i>
           <p>info@eagrproductions.com</p>
         </div>
 
-        <div class="row">
+        <div className="row">
           <small>&copy; Copyright 2022, eagrcode</small>
         </div>
       </div>
