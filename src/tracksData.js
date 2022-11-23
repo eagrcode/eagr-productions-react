@@ -1,5 +1,6 @@
 const tracks = [
   {
+    id: 0,
     title: "Sol",
     artist: "Before The Common Era",
     audioSrc:
@@ -10,6 +11,7 @@ const tracks = [
   },
 
   {
+    id: 1,
     title: "Gold",
     artist: "COPE",
     audioSrc:
@@ -20,6 +22,7 @@ const tracks = [
   },
 
   {
+    id: 2,
     title: "Hollow",
     artist: "Ankida",
     audioSrc:
@@ -29,6 +32,7 @@ const tracks = [
     service: "Full Production",
   },
   {
+    id: 3,
     title: "Planeswalker",
     artist: "Ankida",
     audioSrc:

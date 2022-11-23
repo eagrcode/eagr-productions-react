@@ -1,9 +1,10 @@
 // hooks
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 // data
 import tracks from "../../tracksData";
 // components
 import AudioControls from "../AudioControls/AudioControls";
+import TrackRow from "../TrackRow/TrackRow";
 // libraries
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -32,7 +33,7 @@ function AudioPlayer() {
   // to previous track
   const toPrevTrack = () => {
     if (currentTrack - 1 < 0) {
-      setCurrentTrack(trackslength - 1);
+      setCurrentTrack(tracks.length - 1);
     } else {
       setCurrentTrack(currentTrack - 1);
     }
@@ -95,6 +96,21 @@ function AudioPlayer() {
     }, [1000]);
   };
 
+  function handleClick(id) {
+    console.log(id);
+  }
+
+  const trackRows = tracksData.map((track) => (
+    <TrackRow
+      id={track.id}
+      artist={track.artist}
+      title={track.title}
+      image={track.image}
+      key={track.id}
+      handleClick={handleClick}
+    />
+  ));
+
   return (
     <div className="audio-player">
       <AnimatePresence mode="wait" initial={false}>
@@ -143,6 +159,7 @@ function AudioPlayer() {
         onNextClick={toNextTrack}
         onPlayPauseClick={setIsPlaying}
       />
+      <ul className="track-list">{trackRows}</ul>
       <audio src={audioSrc} preload="auto"></audio>
     </div>
   );
