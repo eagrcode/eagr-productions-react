@@ -48,6 +48,20 @@ function AudioPlayer() {
     }
   };
 
+  // select track from list
+  const selectTrack = (id) => {
+    console.log(id);
+    setCurrentTrack(id);
+    setIsPlaying(true);
+    if (isPlaying) {
+      audioRef.current.play();
+      startTimer();
+    } else {
+      clearInterval(intervalRef.current);
+      audioRef.current.pause();
+    }
+  };
+
   // toggle play/pause audio
   useEffect(() => {
     if (isPlaying) {
@@ -96,10 +110,7 @@ function AudioPlayer() {
     }, [1000]);
   };
 
-  function handleClick(id) {
-    console.log(id);
-  }
-
+  // map TrackRow component with tracksData
   const trackRows = tracksData.map((track) => (
     <TrackRow
       id={track.id}
@@ -107,7 +118,7 @@ function AudioPlayer() {
       title={track.title}
       image={track.image}
       key={track.id}
-      handleClick={handleClick}
+      selectTrack={selectTrack}
     />
   ));
 

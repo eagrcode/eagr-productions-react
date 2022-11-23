@@ -1,6 +1,10 @@
-function TrackRow({ id, artist, title, image, handleClick }) {
+function TrackRow({ id, artist, title, image, onPlayPauseClick, selectTrack }) {
   return (
-    <li onClick={() => handleClick(id)} className="track-row">
+    <li
+      // onClick={() => handleClick(id)}
+      onClick={() => selectTrack(id)}
+      className="track-row"
+    >
       {`${artist} - ${title}`}
       <img
         className="artwork-sm"
