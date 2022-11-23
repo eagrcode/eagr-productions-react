@@ -51,7 +51,7 @@ function AudioPlayer() {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
-      // startTimer();
+      startTimer();
     } else {
       clearInterval(intervalRef.current);
       audioRef.current.pause();
@@ -75,25 +75,25 @@ function AudioPlayer() {
     if (isReady.current && isPlaying === true) {
       audioRef.current.play();
       setIsPlaying(true);
-      // startTimer();
+      startTimer();
     } else {
       // Set the isReady ref as true for the next pass
       isReady.current = true;
     }
   }, [currentTrack]);
 
-  // const startTimer = () => {
-  //   // Clear any timers already running
-  //   clearInterval(intervalRef.current);
+  const startTimer = () => {
+    // Clear any timers already running
+    clearInterval(intervalRef.current);
 
-  //   intervalRef.current = setInterval(() => {
-  //     if (audioRef.current.ended) {
-  //       toNextTrack();
-  //     } else {
-  //       setTrackProgress(audioRef.current.currentTime);
-  //     }
-  //   }, [1000]);
-  // };
+    intervalRef.current = setInterval(() => {
+      if (audioRef.current.ended) {
+        toNextTrack();
+      } else {
+        setTrackProgress(audioRef.current.currentTime);
+      }
+    }, [1000]);
+  };
 
   return (
     <div className="audio-player">
