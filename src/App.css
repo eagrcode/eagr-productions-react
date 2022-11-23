@@ -4,8 +4,8 @@
 
 :root {
   --main-bg-color-dark: hsl(280, 100%, 2%);
-  --main-bg-color-light: hsl(240, 29%, 85%);
-  --nav-link-color-light: hsl(240, 29%, 90%);
+  --main-bg-color-light: hsl(240, 30%, 85%);
+  --nav-link-color-light: hsla(240, 30%, 85%, 0.7);
 }
 
 /* GLOBAL STYLES */
@@ -137,6 +137,10 @@ header {
   font-size: 1.5rem;
 }
 
+.nav-link:hover {
+  color: var(--main-bg-color-light);
+}
+
 /* HERO STYLES */
 
 #hero {
@@ -258,6 +262,12 @@ header {
   gap: 1rem;
 }
 
+.ap-top {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .track-info {
   display: flex;
   flex-direction: column;
@@ -265,13 +275,14 @@ header {
 }
 
 .artwork {
-  border-radius: 5px;
+  border-radius: 3px;
+  max-width: 400px;
 }
 
 .audio-controls {
   display: flex;
   width: 100%;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -292,6 +303,7 @@ header {
   background-color: hsla(280, 100%, 2%, 0.3);
   border-radius: 3px;
   width: 100%;
+  max-width: 400px;
   font-size: 0.8rem;
 }
 
@@ -484,4 +496,37 @@ textarea {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .audio-player {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1000px) {
+  .hamburger {
+    display: none;
+  }
+
+  .nav-bar {
+    padding: 0 2.5rem;
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    height: auto;
+    width: auto;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+  }
 }

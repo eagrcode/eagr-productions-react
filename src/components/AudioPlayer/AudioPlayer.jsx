@@ -125,51 +125,54 @@ function AudioPlayer() {
   return (
     <div className="audio-player">
       <AnimatePresence mode="wait" initial={false}>
-        <div className="track-info">
-          <motion.p
-            key={service}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
-          >
-            {service}
-          </motion.p>
-          <motion.img
-            className="artwork"
-            src={image}
-            alt={`track artwork for ${title} by ${artist}`}
-            key={image}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
+        <div className="ap-top">
+          <div className="track-info">
+            <motion.p
+              key={service}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            >
+              {service}
+            </motion.p>
+            <motion.img
+              className="artwork"
+              src={image}
+              alt={`track artwork for ${title} by ${artist}`}
+              key={image}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            />
+            <motion.p
+              className="title"
+              key={title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            >
+              {title}
+            </motion.p>
+            <motion.p
+              className="artist"
+              key={artist}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            >
+              {artist}
+            </motion.p>
+          </div>
+
+          <AudioControls
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            onPrevClick={toPrevTrack}
+            onNextClick={toNextTrack}
+            onPlayPauseClick={setIsPlaying}
           />
-          <motion.p
-            className="title"
-            key={title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
-          >
-            {title}
-          </motion.p>
-          <motion.p
-            className="artist"
-            key={artist}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
-          >
-            {artist}
-          </motion.p>
         </div>
       </AnimatePresence>
-      <AudioControls
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        onPrevClick={toPrevTrack}
-        onNextClick={toNextTrack}
-        onPlayPauseClick={setIsPlaying}
-      />
       <ul className="track-list">{trackRows}</ul>
       <audio src={audioSrc} preload="auto"></audio>
     </div>
