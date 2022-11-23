@@ -218,13 +218,18 @@ header {
 
 /* PORTFOLIO STYLES */
 
+#portfolio {
+  padding: 0 1rem;
+  background-color: var(--main-bg-color-dark);
+}
+
 .portfolio-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--main-bg-color-dark);
   width: 100%;
-  padding: 3rem 1rem;
+  padding: 3rem 0;
   gap: 1rem;
 }
 
@@ -238,6 +243,7 @@ header {
 
 .audio-player {
   width: 100%;
+  max-width: 50rem;
   background-color: gray;
   color: var(--main-bg-color-light);
   background-color: hsla(327, 100%, 15%, 0.7);
@@ -260,6 +266,7 @@ header {
 
 .artwork {
   border-radius: 5px;
+  max-width: 300px;
 }
 
 .audio-controls {
@@ -285,6 +292,7 @@ header {
   display: flex;
   justify-content: center;
   background-color: var(--main-bg-color-light);
+  padding: 0 1rem;
 }
 
 .services-container {
@@ -296,7 +304,7 @@ header {
   text-align: center;
 
   background-color: var(--main-bg-color-light);
-  padding: 3rem 1rem;
+  padding: 3rem 0;
   gap: 1rem;
 }
 
@@ -307,8 +315,9 @@ header {
 .card-grid {
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 300px;
+  max-width: 50rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-auto-rows: 250px;
 
   gap: 1rem;
   margin-top: 2rem;
@@ -344,6 +353,7 @@ header {
   width: 100%;
   background-color: hsl(0, 0%, 15%);
   justify-content: center;
+  padding: 0 1rem;
 }
 
 .contact-container {
@@ -355,7 +365,7 @@ header {
   align-items: center;
   text-align: center;
 
-  padding: 3rem 1rem;
+  padding: 3rem 0;
 }
 
 .form-container {
