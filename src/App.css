@@ -218,13 +218,18 @@ header {
 
 /* PORTFOLIO STYLES */
 
+#portfolio {
+  padding: 0 1rem;
+  background-color: var(--main-bg-color-dark);
+}
+
 .portfolio-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--main-bg-color-dark);
   width: 100%;
-  padding: 3rem 1rem;
+  padding: 3rem 0;
   gap: 1rem;
 }
 
@@ -238,6 +243,7 @@ header {
 
 .audio-player {
   width: 100%;
+  max-width: 50rem;
   background-color: gray;
   color: var(--main-bg-color-light);
   background-color: hsla(327, 100%, 15%, 0.7);
@@ -279,12 +285,52 @@ header {
   color: var(--main-bg-color-light);
 }
 
+.track-list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: hsla(280, 100%, 2%, 0.3);
+  border-radius: 3px;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.track-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.track-row:first-child {
+  border-top-right-radius: 3px;
+}
+
+.track-row:last-child {
+  border-bottom-right-radius: 3px;
+}
+
+.track-row:not(:last-child) {
+  border-bottom: solid 1px rgba(80, 80, 80, 0.3);
+}
+
+.track-row:hover {
+  background-color: hsla(280, 100%, 2%, 0.3);
+}
+
+.artwork-sm {
+  width: 70px;
+  border-radius: inherit;
+}
+
 /* SERVICES STYLES */
 
 #services {
   display: flex;
   justify-content: center;
   background-color: var(--main-bg-color-light);
+  padding: 0 1rem;
 }
 
 .services-container {
@@ -296,7 +342,7 @@ header {
   text-align: center;
 
   background-color: var(--main-bg-color-light);
-  padding: 3rem 1rem;
+  padding: 3rem 0;
   gap: 1rem;
 }
 
@@ -307,8 +353,9 @@ header {
 .card-grid {
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr;
-  grid-auto-rows: 300px;
+  max-width: 50rem;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  grid-auto-rows: 250px;
 
   gap: 1rem;
   margin-top: 2rem;
@@ -344,6 +391,7 @@ header {
   width: 100%;
   background-color: hsl(0, 0%, 15%);
   justify-content: center;
+  padding: 0 1rem;
 }
 
 .contact-container {
@@ -355,7 +403,7 @@ header {
   align-items: center;
   text-align: center;
 
-  padding: 3rem 1rem;
+  padding: 3rem 0;
 }
 
 .form-container {
