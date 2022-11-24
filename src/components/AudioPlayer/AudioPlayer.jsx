@@ -121,6 +121,8 @@ function AudioPlayer() {
       image={track.image}
       key={track.id}
       selectTrack={selectTrack}
+      isPlaying={isPlaying}
+      currentTrack={currentTrack}
     />
   ));
 

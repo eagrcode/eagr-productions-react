@@ -1,9 +1,18 @@
-function TrackRow({ id, artist, title, image, onPlayPauseClick, selectTrack }) {
+function TrackRow({
+  id,
+  artist,
+  title,
+  image,
+  selectTrack,
+  isPlaying,
+  currentTrack,
+}) {
   return (
     <li
-      // onClick={() => handleClick(id)}
       onClick={() => selectTrack(id)}
-      className="track-row"
+      className={`track-row ${
+        isPlaying && currentTrack === id ? "active" : ""
+      }`}
     >
       {`${artist} - ${title}`}
       <img

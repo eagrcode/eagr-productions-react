@@ -315,6 +315,10 @@ header {
   cursor: pointer;
 }
 
+.track-row.active {
+  background-color: hsla(280, 100%, 2%, 0.3);
+}
+
 .track-row:first-child {
   border-top-right-radius: 3px;
 }
