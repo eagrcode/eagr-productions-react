@@ -51,7 +51,7 @@ function Navbar({ title }) {
           </li>
 
           <li className="nav-item" onClick={handleClick}>
-            <a href="#portfolio" className="nav-link" id="nav-link">
+            <a href="#portfolio-header" className="nav-link" id="nav-link">
               Portfolio
             </a>
           </li>

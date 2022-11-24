@@ -33,6 +33,16 @@ const tracks = [
   },
   {
     id: 3,
+    title: "GGD P4 - Matt Halpern Kit | Demo",
+    artist: "Elliot Robinson",
+    audioSrc:
+      "https://eagrcode-website-images.s3.eu-west-2.amazonaws.com/Neural+DSP+Archetype+Nolly+(EAGR+Productions)_3.wav",
+    image:
+      "https://eagrcode-website-images.s3.eu-west-2.amazonaws.com/GGD+P4+sq.png",
+    service: "Full Production",
+  },
+  {
+    id: 4,
     title: "Planeswalker",
     artist: "Ankida",
     audioSrc:

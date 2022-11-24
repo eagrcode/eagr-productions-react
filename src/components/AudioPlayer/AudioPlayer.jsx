@@ -177,7 +177,10 @@ function AudioPlayer() {
           />
         </div>
       </AnimatePresence>
-      <ul className="track-list">{trackRows}</ul>
+      <div className="ap-bottom">
+        <p>Track List</p>
+        <ul className="track-list">{trackRows}</ul>
+      </div>
       <audio src={audioSrc} preload="auto"></audio>
     </div>
   );
