@@ -23,12 +23,14 @@ function AudioPlayer() {
   const intervalRef = useRef();
   const isReady = useRef(false);
 
-  console.log(tracks[currentTrack]);
-  console.log(audioRef.current);
-  console.log(audioSrc);
-  console.log(isPlaying);
-  console.log(intervalRef);
-  console.log(isReady.current);
+  // console.log(tracks[currentTrack]);
+  // console.log(audioRef.current);
+  // console.log(isPlaying);
+
+  // confirm mount
+  useEffect(() => {
+    console.log("mounted");
+  }, []);
 
   // to previous track
   const toPrevTrack = () => {
@@ -53,13 +55,13 @@ function AudioPlayer() {
     console.log(id);
     setCurrentTrack(id);
     setIsPlaying(true);
-    if (isPlaying) {
-      audioRef.current.play();
-      startTimer();
-    } else {
-      clearInterval(intervalRef.current);
-      audioRef.current.pause();
-    }
+    // if (isPlaying) {
+    //   audioRef.current.play();
+    //   startTimer();
+    // } else {
+    //   clearInterval(intervalRef.current);
+    //   audioRef.current.pause();
+    // }
   };
 
   // toggle play/pause audio
@@ -119,57 +121,62 @@ function AudioPlayer() {
       image={track.image}
       key={track.id}
       selectTrack={selectTrack}
+      isPlaying={isPlaying}
+      currentTrack={currentTrack}
     />
   ));
 
   return (
     <div className="audio-player">
       <AnimatePresence mode="wait" initial={false}>
-        <div className="track-info">
-          <motion.p
-            key={service}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
-          >
-            {service}
-          </motion.p>
-          <motion.img
-            className="artwork"
-            src={image}
-            alt={`track artwork for ${title} by ${artist}`}
-            key={image}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
+        <div className="ap-top">
+          <div className="track-info">
+            <motion.p
+              key={service}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            >
+              {service}
+            </motion.p>
+            <motion.img
+              className="artwork"
+              src={image}
+              alt={`track artwork for ${title} by ${artist}`}
+              key={image}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            />
+            <motion.p
+              className="title"
+              key={title}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            >
+              {title}
+            </motion.p>
+            <motion.p
+              className="artist"
+              key={artist}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
+            >
+              {artist}
+            </motion.p>
+          </div>
+
+          <AudioControls
+            isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
+            onPrevClick={toPrevTrack}
+            onNextClick={toNextTrack}
+            onPlayPauseClick={setIsPlaying}
           />
-          <motion.p
-            className="title"
-            key={title}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
-          >
-            {title}
-          </motion.p>
-          <motion.p
-            className="artist"
-            key={artist}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.8 } }}
-            exit={{ opacity: 0 }}
-          >
-            {artist}
-          </motion.p>
         </div>
       </AnimatePresence>
-      <AudioControls
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        onPrevClick={toPrevTrack}
-        onNextClick={toNextTrack}
-        onPlayPauseClick={setIsPlaying}
-      />
       <ul className="track-list">{trackRows}</ul>
       <audio src={audioSrc} preload="auto"></audio>
     </div>

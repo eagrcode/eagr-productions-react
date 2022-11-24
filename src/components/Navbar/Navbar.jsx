@@ -2,16 +2,39 @@
 import { HiMail } from "react-icons/hi";
 
 // Hooks
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navbar({ title }) {
   // Init state
   const [isOpen, setIsOpen] = useState(false);
+  // const [windowSize, setWindowSize] = useState(getWindowSize());
+  // const [isWideEnough, setIsWideEnough] = useState(false);
 
   // Toggle active class
   function handleClick() {
     setIsOpen(!isOpen);
   }
+
+  // listen to window width
+  // useEffect(() => {
+  //   function handleWindowResize() {
+  //     setWindowSize(getWindowSize());
+  //   }
+
+  //   window.addEventListener("resize", handleWindowResize);
+
+  //   return () => {
+  //     window.removeEventListener("resize", handleWindowResize);
+  //   };
+  // }, []);
+
+  // function getWindowSize() {
+  //   const { innerWidth, innerHeight } = window;
+  //   return { innerWidth, innerHeight };
+  // }
+
+  // console.log(innerWidth);
+  // console.log(isWideEnough);
 
   return (
     <header>
@@ -40,8 +63,8 @@ function Navbar({ title }) {
           </li>
 
           <li className="nav-item" onClick={handleClick}>
-            <a href="#contact" className="nav-link">
-              <HiMail size={50} />
+            <a href="#contact" className="nav-link" id="mail-icon">
+              <HiMail size={50} color="hsla(327, 100%, 30%, 0.7)" />
             </a>
           </li>
         </ul>
