@@ -152,12 +152,20 @@ header {
 
 .hero-container {
   width: 100%;
+  max-width: 60rem;
   min-height: 92vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--main-bg-color-dark);
-  padding: 3rem 1rem;
+  padding: 3rem 3rem;
+  gap: 3rem;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 3rem;
 }
 
@@ -224,7 +232,24 @@ header {
 
 #portfolio {
   padding: 0 1rem;
-  background-color: var(--main-bg-color-dark);
+  /* background-color: var(--main-bg-color-dark); */
+  background: rgb(89, 0, 41);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(89, 0, 41, 0.9391106784510679) 0%,
+    rgba(84, 61, 77, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(89, 0, 41, 0.9391106784510679) 0%,
+    rgba(84, 61, 77, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(89, 0, 41, 0.9391106784510679) 0%,
+    rgba(84, 61, 77, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#590029",endColorstr="#543d4d",GradientType=1);
 }
 
 .portfolio-wrapper {
@@ -232,6 +257,7 @@ header {
   flex-direction: column;
   align-items: center;
   background-color: var(--main-bg-color-dark);
+  background: none;
   width: 100%;
   padding: 3rem 0;
   gap: 1rem;
@@ -251,20 +277,39 @@ header {
   background-color: gray;
   color: var(--main-bg-color-light);
   background-color: hsla(327, 100%, 15%, 0.7);
+  background: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   border-radius: 5px;
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
   gap: 1rem;
+
+  /* background: rgb(89, 0, 41);
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(89, 0, 41, 0.9391106784510679) 0%,
+    rgba(84, 61, 77, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(89, 0, 41, 0.9391106784510679) 0%,
+    rgba(84, 61, 77, 1) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(89, 0, 41, 0.9391106784510679) 0%,
+    rgba(84, 61, 77, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#590029",endColorstr="#543d4d",GradientType=1); */
 }
 
 .ap-top {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -276,14 +321,17 @@ header {
 
 .artwork {
   border-radius: 3px;
-  max-width: 400px;
+  max-width: 354px;
+  box-shadow: rgba(174, 167, 173, 0.2) 0px 10px 30px 0px;
 }
 
 .audio-controls {
   display: flex;
   width: 100%;
+  max-width: 350px;
   justify-content: space-around;
   align-items: center;
+  margin: 1rem 0;
 }
 
 .prev,
@@ -296,6 +344,13 @@ header {
   color: var(--main-bg-color-light);
 }
 
+.ap-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .track-list {
   display: flex;
   flex-direction: column;
@@ -303,7 +358,8 @@ header {
   background-color: hsla(280, 100%, 2%, 0.3);
   border-radius: 3px;
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
+  max-height: 354px;
   font-size: 0.8rem;
 }
 
@@ -505,6 +561,22 @@ textarea {
 }
 
 @media (min-width: 1000px) {
+  /* GLOBAL STYLES */
+
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  em {
+    font-weight: 200;
+  }
+
+  /* NAVBAR STYLES */
+
   .hamburger {
     display: none;
   }
@@ -530,9 +602,27 @@ textarea {
     font-size: 1.2rem;
   }
 
+  /* HERO STYLES */
+
   .hero-container {
     flex-direction: row;
+    justify-content: space-evenly;
   }
+
+  .hero-left {
+    order: 1;
+    align-items: flex-start;
+  }
+
+  .hero-text-container {
+    text-align: left;
+  }
+
+  .hero-image-container {
+    order: 2;
+  }
+
+  /* PORTFOLIO STYLES */
 
   .track-row:hover {
     background-color: hsla(280, 100%, 2%, 0.3);
