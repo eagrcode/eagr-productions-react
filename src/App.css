@@ -331,10 +331,6 @@ header {
   border-bottom: solid 1px rgba(80, 80, 80, 0.3);
 }
 
-.track-row:hover {
-  background-color: hsla(280, 100%, 2%, 0.3);
-}
-
 .artwork-sm {
   width: 70px;
   border-radius: inherit;
@@ -536,5 +532,9 @@ textarea {
 
   .hero-container {
     flex-direction: row;
+  }
+
+  .track-row:hover {
+    background-color: hsla(280, 100%, 2%, 0.3);
   }
 }
