@@ -529,4 +529,8 @@ textarea {
   .nav-link {
     font-size: 1.2rem;
   }
+
+  .hero-container {
+    flex-direction: row;
+  }
 }

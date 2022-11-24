@@ -23,12 +23,14 @@ function AudioPlayer() {
   const intervalRef = useRef();
   const isReady = useRef(false);
 
-  console.log(tracks[currentTrack]);
-  console.log(audioRef.current);
-  console.log(audioSrc);
-  console.log(isPlaying);
-  console.log(intervalRef);
-  console.log(isReady.current);
+  // console.log(tracks[currentTrack]);
+  // console.log(audioRef.current);
+  // console.log(isPlaying);
+
+  // confirm mount
+  useEffect(() => {
+    console.log("mounted");
+  }, []);
 
   // to previous track
   const toPrevTrack = () => {
@@ -53,13 +55,13 @@ function AudioPlayer() {
     console.log(id);
     setCurrentTrack(id);
     setIsPlaying(true);
-    if (isPlaying) {
-      audioRef.current.play();
-      startTimer();
-    } else {
-      clearInterval(intervalRef.current);
-      audioRef.current.pause();
-    }
+    // if (isPlaying) {
+    //   audioRef.current.play();
+    //   startTimer();
+    // } else {
+    //   clearInterval(intervalRef.current);
+    //   audioRef.current.pause();
+    // }
   };
 
   // toggle play/pause audio
