@@ -12,7 +12,11 @@ function Footer() {
         </div>
 
         <div className="row">
-          <small>&copy; Copyright 2022, eagrcode</small>
+          <small>&copy; Copyright 2022, eagrproductions</small>
+        </div>
+
+        <div className="row">
+          <small>Website by eagrcode</small>
         </div>
       </div>
     </footer>
