@@ -1,7 +1,7 @@
 function ContactForm() {
   return (
     <div className="form-container">
-      <form name="contact" id="form" netlify>
+      <form id="form" name="contact" method="POST" data-netlify="true">
         <input
           type="text"
           id="first-name"
