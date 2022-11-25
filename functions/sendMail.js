@@ -9,15 +9,15 @@ const handler = async (event, context, callback) => {
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: process.env.REACT_APP_gmail,
-      pass: process.env.REACT_APP_password,
+      user: "testymcmailface@gmail.com",
+      pass: "uxljsggzufjphwxs",
     },
   });
 
   transporter.sendMail(
     {
       from: "EAGR Productions Contact", // sender address
-      to: process.env.REACT_APP_email, // list of receivers
+      to: "eagrproductions92@gmail.com", // list of receivers
       subject: "New Contact Form Submission", // subject line
 
       html: `<h3>Contact Details</h3>   
@@ -42,4 +42,4 @@ const handler = async (event, context, callback) => {
   );
 };
 
-module.exports = handler;
+export default handler;
