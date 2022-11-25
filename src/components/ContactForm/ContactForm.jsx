@@ -9,7 +9,6 @@ function ContactForm() {
           placeholder="First Name"
           required
           minLength="2"
-          onSubmit="submit"
         />
         <input
           type="text"
