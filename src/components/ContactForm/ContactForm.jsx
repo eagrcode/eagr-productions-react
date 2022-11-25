@@ -1,19 +1,22 @@
 function ContactForm() {
   return (
     <div className="form-container">
-      <form id="form" method="POST" action="send">
+      <form name="contact" id="form" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+
         <input
           type="text"
           id="first-name"
-          name="firstName"
+          name="fName"
           placeholder="First Name"
           required
           minLength="2"
+          onSubmit="submit"
         />
         <input
           type="text"
           id="last-name"
-          name="lastName"
+          name="lName"
           placeholder="Last Name"
           required
           minLength="2"
@@ -25,7 +28,6 @@ function ContactForm() {
           placeholder="Email Adress"
           minLength="5"
           required
-          pattern="[@]"
         />
         <textarea
           id="message"
