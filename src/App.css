@@ -327,11 +327,65 @@ header {
 
 .audio-controls {
   display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 350px;
-  justify-content: space-around;
   align-items: center;
-  margin: 1rem 0;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.audio-btns {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.progress-slider {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+}
+
+.seek {
+  width: 80%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 50px;
+  background: #c0c0c0;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.seek:hover {
+  opacity: 1;
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.seek::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  border-radius: 50px;
+  background: rgb(145, 56, 176); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.seek::-moz-range-thumb {
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  border-radius: 50px;
+  background: rgb(145, 56, 176); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.seek::-webkit-range-progress {
+  background-color: red;
 }
 
 .prev,

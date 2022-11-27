@@ -10,32 +10,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function AudioPlayer() {
   // state
+  const [tracksData, setTracksData] = useState(tracks);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [trackProgress, setTrackProgress] = useState(0);
-  const [tracksData, setTracksData] = useState(tracks);
 
   // data destructure
   const { title, artist, audioSrc, image, service } = tracksData[currentTrack];
 
   // refs
-  const audioRef = useRef(new Audio(audioSrc));
-  const intervalRef = useRef();
-  const isReady = useRef(false);
+  const audioRef = useRef();
 
-  // console.log(tracks[currentTrack]);
-  // console.log(audioRef.current);
-  // console.log(isPlaying);
-
-  // confirm mount
-  useEffect(() => {
-    console.log("mounted");
-  }, []);
+  // logs
+  console.log(audioRef.current);
+  console.log(isPlaying);
 
   // to previous track
   const toPrevTrack = () => {
     if (currentTrack - 1 < 0) {
-      setCurrentTrack(tracks.length - 1);
+      setCurrentTrack(tracksData.length - 1);
     } else {
       setCurrentTrack(currentTrack - 1);
     }
@@ -43,7 +35,7 @@ function AudioPlayer() {
 
   // to next track
   const toNextTrack = () => {
-    if (currentTrack < tracks.length - 1) {
+    if (currentTrack < tracksData.length - 1) {
       setCurrentTrack(currentTrack + 1);
     } else {
       setCurrentTrack(0);
@@ -52,65 +44,25 @@ function AudioPlayer() {
 
   // select track from list
   const selectTrack = (id) => {
-    console.log(id);
     setCurrentTrack(id);
     setIsPlaying(true);
-    // if (isPlaying) {
-    //   audioRef.current.play();
-    //   startTimer();
-    // } else {
-    //   clearInterval(intervalRef.current);
-    //   audioRef.current.pause();
-    // }
   };
 
   // toggle play/pause audio
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
-      startTimer();
     } else {
-      clearInterval(intervalRef.current);
       audioRef.current.pause();
     }
   }, [isPlaying]);
 
-  // Pause and clean up on unmount
+  // play track on prev/next/select
   useEffect(() => {
-    return () => {
-      audioRef.current.pause();
-      clearInterval(intervalRef.current);
-    };
-  }, []);
-
-  // Handle setup when changing tracks
-  useEffect(() => {
-    audioRef.current.pause();
-    audioRef.current = new Audio(audioSrc);
-    setTrackProgress(audioRef.current.currentTime);
-
-    if (isReady.current && isPlaying === true) {
+    if (isPlaying) {
       audioRef.current.play();
-      setIsPlaying(true);
-      startTimer();
-    } else {
-      // Set the isReady ref as true for the next pass
-      isReady.current = true;
     }
   }, [currentTrack]);
-
-  const startTimer = () => {
-    // Clear any timers already running
-    clearInterval(intervalRef.current);
-
-    intervalRef.current = setInterval(() => {
-      if (audioRef.current.ended) {
-        toNextTrack();
-      } else {
-        setTrackProgress(audioRef.current.currentTime);
-      }
-    }, [1000]);
-  };
 
   // map TrackRow component with tracksData
   const trackRows = tracksData.map((track) => (
@@ -174,6 +126,7 @@ function AudioPlayer() {
             onPrevClick={toPrevTrack}
             onNextClick={toNextTrack}
             onPlayPauseClick={setIsPlaying}
+            audioRef={audioRef}
           />
         </div>
       </AnimatePresence>
@@ -181,7 +134,7 @@ function AudioPlayer() {
         <p>Track List</p>
         <ul className="track-list">{trackRows}</ul>
       </div>
-      <audio src={audioSrc} preload="auto"></audio>
+      <audio ref={audioRef} src={audioSrc} preload="auto" />
     </div>
   );
 }
