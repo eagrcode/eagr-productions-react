@@ -75,6 +75,16 @@ function AudioPlayer() {
     }
   }, [currentTrack]);
 
+  // to next track
+  const onTrackEnd = () => {
+    if (currentTrack < tracksData.length - 1) {
+      setCurrentTrack(currentTrack + 1);
+    } else {
+      setIsPlaying(!isPlaying);
+      setCurrentTrack(0);
+    }
+  };
+
   // map TrackRow component with tracksData
   const trackRows = tracksData.map((track) => (
     <TrackRow
@@ -154,6 +164,7 @@ function AudioPlayer() {
         preload="metadata"
         onLoadedMetadata={loadMetaData}
         onTimeUpdate={updateCurrentTime}
+        onEnded={onTrackEnd}
       />
     </div>
   );
