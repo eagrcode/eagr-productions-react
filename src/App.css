@@ -342,6 +342,7 @@ header {
 }
 
 .progress-slider {
+  position: relative;
   display: flex;
   width: 100%;
   gap: 10px;
@@ -349,8 +350,18 @@ header {
   justify-content: center;
 }
 
+.current-time-text {
+  position: absolute;
+  left: 0;
+}
+
+.remaining-time-text {
+  position: absolute;
+  right: 0;
+}
+
 .seek {
-  width: 80%;
+  width: 70%;
   -webkit-appearance: none;
   appearance: none;
   height: 5px;

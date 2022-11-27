@@ -29,7 +29,7 @@ function AudioControls({
     let currentMinutes = parseInt(currentTime / 60) % 60;
 
     const returnedMinutes =
-      currentMinutes < 10 ? `0${currentMinutes}` : `${currentMinutes}`;
+      currentMinutes < 10 ? `${currentMinutes}` : `${currentMinutes}`;
 
     let currentSeconds = parseInt(currentTime % 60);
 
@@ -49,7 +49,7 @@ function AudioControls({
     const returnedRemainingSeconds =
       remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
 
-    return `-${remainingMinutes}:${returnedRemainingSeconds}`;
+    return `${remainingMinutes}:${returnedRemainingSeconds}`;
   };
 
   return (
@@ -106,7 +106,9 @@ function AudioControls({
           onMouseUp={onScrubEnd}
           onKeyUp={onScrubEnd}
         />
-        {calculateRemainingTime(duration)}
+        <span className="remaining-time-text">
+          {calculateRemainingTime(duration)}
+        </span>
       </div>
     </div>
   );
