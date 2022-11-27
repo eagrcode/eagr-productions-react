@@ -1,45 +1,54 @@
 import { FaPlay, FaPause, FaBackward, FaForward } from "react-icons/fa";
 
 function AudioControls({
+  audioRef,
   isPlaying,
+  setIsPlaying,
   onPrevClick,
   onNextClick,
   onPlayPauseClick,
   duration,
   currentTime,
+  setCurrentTime,
 }) {
-  // const onScrub = (value) => {
-  //   // Clear any timers already running
-  //   audioRef.current.muted = true;
-  //   clearInterval(intervalRef.current);
-  //   currentTime = value;
-  //   setcurrentTime(currentTime);
-  // };
+  const onScrub = (value) => {
+    audioRef.current.muted = true;
+    audioRef.current.currentTime = value;
+    setCurrentTime(audioRef.current.currentTime);
+  };
 
-  // const onScrubEnd = () => {
-  //   audioRef.current.muted = false;
-  //   // If not already playing, start
-  //   if (!isPlaying) {
-  //     setIsPlaying(true);
-  //   }
-  // };
+  const onScrubEnd = () => {
+    audioRef.current.muted = false;
+    // If not already playing, start
+    if (!isPlaying) {
+      setIsPlaying(true);
+    }
+  };
 
   const calculateCurrentTime = () => {
     let currentMinutes = parseInt(currentTime / 60) % 60;
+
     const returnedMinutes =
       currentMinutes < 10 ? `0${currentMinutes}` : `${currentMinutes}`;
+
     let currentSeconds = parseInt(currentTime % 60);
+
     const returnedSeconds =
       currentSeconds < 10 ? `0${currentSeconds}` : `${currentSeconds}`;
+
     return `${returnedMinutes}:${returnedSeconds}`;
   };
 
   const calculateRemainingTime = () => {
     let remainingTime = Math.floor(duration - currentTime);
-    let remainingMinutes = parseInt(duration / 60) % 60;
+
+    let remainingMinutes = parseInt(remainingTime / 60) % 60;
+
     let remainingSeconds = parseInt(remainingTime % 60);
+
     const returnedRemainingSeconds =
       remainingSeconds < 10 ? `0${remainingSeconds}` : `${remainingSeconds}`;
+
     return `-${remainingMinutes}:${returnedRemainingSeconds}`;
   };
 
@@ -89,13 +98,13 @@ function AudioControls({
         <input
           className="seek"
           type="range"
-          value=""
+          value={currentTime}
           step="1"
           min="0"
-          // max={duration ? duration : `${duration}`}
-          // onChange={(e) => onScrub(e.target.value)}
-          // onMouseUp={onScrubEnd}
-          // onKeyUp={onScrubEnd}
+          max={duration ? duration : `${duration}`}
+          onChange={(e) => onScrub(e.target.value)}
+          onMouseUp={onScrubEnd}
+          onKeyUp={onScrubEnd}
         />
         {calculateRemainingTime(duration)}
       </div>

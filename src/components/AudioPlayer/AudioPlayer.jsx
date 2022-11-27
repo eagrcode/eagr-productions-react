@@ -26,11 +26,12 @@ function AudioPlayer() {
 
   // load audio duration
   const loadMetaData = () => {
-    setDuration(audioRef.current.duration);
+    setDuration(Math.floor(audioRef.current.duration));
   };
 
+  // set ontimeupdate to currentTime state
   const updateCurrentTime = () => {
-    setCurrentTime(audioRef.current.currentTime);
+    setCurrentTime(Math.floor(audioRef.current.currentTime));
   };
 
   // to previous track
@@ -62,7 +63,6 @@ function AudioPlayer() {
     if (isPlaying) {
       audioRef.current.play();
       setCurrentTime(audioRef.current.currentTime);
-      console.log(currentTime);
     } else {
       audioRef.current.pause();
     }
@@ -132,13 +132,15 @@ function AudioPlayer() {
           </div>
 
           <AudioControls
+            audioRef={audioRef}
             isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
             onPrevClick={toPrevTrack}
             onNextClick={toNextTrack}
             onPlayPauseClick={setIsPlaying}
-            audioRef={audioRef}
             duration={duration}
             currentTime={currentTime}
+            setCurrentTime={setCurrentTime}
           />
         </div>
       </AnimatePresence>
