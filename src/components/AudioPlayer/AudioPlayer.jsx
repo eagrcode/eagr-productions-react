@@ -13,6 +13,8 @@ function AudioPlayer() {
   const [tracksData, setTracksData] = useState(tracks);
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
   // data destructure
   const { title, artist, audioSrc, image, service } = tracksData[currentTrack];
@@ -21,8 +23,15 @@ function AudioPlayer() {
   const audioRef = useRef();
 
   // logs
-  console.log(audioRef.current);
-  console.log(isPlaying);
+
+  // load audio duration
+  const loadMetaData = () => {
+    setDuration(audioRef.current.duration);
+  };
+
+  const updateCurrentTime = () => {
+    setCurrentTime(audioRef.current.currentTime);
+  };
 
   // to previous track
   const toPrevTrack = () => {
@@ -52,6 +61,8 @@ function AudioPlayer() {
   useEffect(() => {
     if (isPlaying) {
       audioRef.current.play();
+      setCurrentTime(audioRef.current.currentTime);
+      console.log(currentTime);
     } else {
       audioRef.current.pause();
     }
@@ -122,11 +133,12 @@ function AudioPlayer() {
 
           <AudioControls
             isPlaying={isPlaying}
-            setIsPlaying={setIsPlaying}
             onPrevClick={toPrevTrack}
             onNextClick={toNextTrack}
             onPlayPauseClick={setIsPlaying}
             audioRef={audioRef}
+            duration={duration}
+            currentTime={currentTime}
           />
         </div>
       </AnimatePresence>
@@ -134,7 +146,13 @@ function AudioPlayer() {
         <p>Track List</p>
         <ul className="track-list">{trackRows}</ul>
       </div>
-      <audio ref={audioRef} src={audioSrc} preload="auto" />
+      <audio
+        ref={audioRef}
+        src={audioSrc}
+        preload="metadata"
+        onLoadedMetadata={loadMetaData}
+        onTimeUpdate={updateCurrentTime}
+      />
     </div>
   );
 }
