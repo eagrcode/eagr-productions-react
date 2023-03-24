@@ -13,6 +13,7 @@ The purpose of this project is to demonstrate previous work to potential clients
 
 ## Technologies
 
+- [ReactJS](https://react.dev/ "React Docs")
 - [ViteJS](https://vitejs.dev/ "ViteJS")
 - [React Router](https://reactrouter.com/en/main/components/routes "React Router")
 - [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API "Web Audio API")
